@@ -1,14 +1,19 @@
+*{
+  min-width:4px;
+  min-height:4px;
+}
+
 body {
     background-color: rgb(255, 255, 255);
     color: #8c3839;
-    
+    width:1048px;
    
     
     /*BackgroundImage*/
     display: block;
     background: center/cover url("Images/v1043-024a.jpg") no-repeat;
     height: auto;
-    /*Fix animation*/
+    /*TODO:Fix animation*/
     animation: moveIt 10s linear infinite;
 }
 @keyframes moveIt {
@@ -46,56 +51,53 @@ a:active {
     text-decoration: underline;
 }
 
-
-
-/*Grid Box*/
-.container {
-    display: grid;
-    grid-template-areas:
-        "topbar topbar topbar"
-        "sidebar content content"
-        "footer footer footer";
-
-    /*Sets sizes of columns*/
-    grid-template-columns: repeat(3, 1fr);
-
-    grid-template-rows: minmax(1fr,2fr, 1fr);
-    /*GTR:50px auto 70px*/
-    /*Centers the children*/
-    
-    align-items: center;
-    /*justify-items: center;*/
-    
-    gap: 10px;
-    
-    flex-wrap: wrap;
-    
+/*FLEXBOX LAYOUT*/
+/*ALLOWS TO HAVE HORIZONTAL HEADER AND FOOT BUT VERTICAL NAVBAR AND MAIN PAGE*/
+.flex-column {
+    display:flex; 
+    flex-direction:column; 
+    justify-content: center; /*centers items on the line (the x-axis by default)*/
+    align-items: center; 
 }
 
-.flexbox{
-  display: flex;
-  
+/* CONTROLS NAV + ARTICLE */
+.flex-row{
+    display:flex; 
+    flex-direction:row;
+    justify-self: flex-end;
+
 }
+
 
 .header {
-    grid-area: topbar;
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+    border:1px solid black;
 }
-.article  {
-    grid-area: content;
+.main  {
+    
     background-color: #ffd3db;
     background-clip: padding-box;
-}
-.nav{
-    grid-area: sidebar;
-    background-color: #ffd3db;
-    background-clip: padding-box;
+    
+    /* align-items: center; */
+    text-align: center;
+    justify-self: flex-end;
 
 }
+.nav{
+    
+    background-color: #ffd3db;
+    background-clip: padding-box;
+    width:360px;
+    border:1px solid black;
+    justify-self: flex-start;
+}
 .footer {
-    grid-area: footer;
     background-color: #ffd3db;
     /*border-color: #da7073;*/
     background-clip: padding-box;
+    border:1px solid black;
 }
 
 /*Fun Stuff*/
